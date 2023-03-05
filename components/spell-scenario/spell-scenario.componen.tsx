@@ -41,6 +41,7 @@ const SpellScenario: FC<SpellScenarioProps> = ({
                 value={spellInput}
                 onChange={handleSpellInputChange}
                 aria-label="spell input"
+                disabled={isInputCorrect}
                 status={`${isInputCorrect ? "success"
                     : isInputCorrect === false ? "error"
                     : "default"

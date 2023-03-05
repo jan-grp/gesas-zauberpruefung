@@ -95,7 +95,6 @@ const QuestionForm: FC<QuestionFormTypes> = ({
 
     if(question.type === "spell") {
         const handleSpellInputChange = (e: ChangeEvent<FormElement>) => {
-            if(isSpellInputCorrect) return
             if(isSpellInputCorrect === false) setIsSpellInputCorrect(undefined) 
             const { value } = e.target
             setSpellInput(value)

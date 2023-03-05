@@ -23,7 +23,7 @@ const QuestionIntro: FC<QuestionIntroTypes> = ({
                 initialVisible
                 offset={-15}
                 css={{ marginRight: 15 }}
-                leaveDelay={10000000}
+                // leaveDelay={10000000}
             >
                 <Lottie 
                     style={{ height: 150, padding: 0 }}
