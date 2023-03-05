@@ -1,4 +1,4 @@
-import { FC, useState, ChangeEvent, FormEvent } from 'react'
+import { FC, useState, ChangeEvent, useEffect } from 'react'
 import { MultipleChoiceQuestion, SpellQuestion } from '../../quests'
 import { Button, Text, FormElement } from '@nextui-org/react'
 import styles from './question-form.module.scss'
@@ -27,12 +27,10 @@ const QuestionForm: FC<QuestionFormTypes> = ({
 }) => {
     const defaultSelectionState: ("unselected" | "correct" | "wrong")[] = ["unselected", "unselected", "unselected", "unselected"]
     const [selectionState, setSelectionState] = useState<typeof defaultSelectionState>(defaultSelectionState)
-    const [spellInput, setSpellInput] = useState<string>("")
     const [isSpellInputCorrect, setIsSpellInputCorrect] = useState<boolean | undefined>(undefined)
 
     const goToNextQuestion = () => {
         setSelectionState(defaultSelectionState)
-        setSpellInput("")
         setIsSpellInputCorrect(undefined)
         loadNextQuestion()
     }
@@ -94,13 +92,10 @@ const QuestionForm: FC<QuestionFormTypes> = ({
     }
 
     if(question.type === "spell") {
-        const handleSpellInputChange = (e: ChangeEvent<FormElement>) => {
-            if(isSpellInputCorrect === false) setIsSpellInputCorrect(undefined) 
-            const { value } = e.target
-            setSpellInput(value)
-        }
-
         const handleSpellSubmit = () => {
+            const inputElement = document.getElementById("spellInput") as HTMLInputElement
+            const spellInput = inputElement.value
+            
             if(isCloseEnough(spellInput, question.correctAnswer)) {
                 setIsSpellInputCorrect(true)
                 return increaseProgress()
@@ -115,8 +110,6 @@ const QuestionForm: FC<QuestionFormTypes> = ({
                 </QuestionIntro>
     
                 <SpellScenario
-                    spellInput={spellInput}
-                    handleSpellInputChange={handleSpellInputChange}
                     handleSpellSubmit={handleSpellSubmit}
                     isInputCorrect={isSpellInputCorrect}
                     goToNextQuestion={goToNextQuestion} 

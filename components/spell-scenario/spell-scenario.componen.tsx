@@ -6,8 +6,6 @@ import { IoSend } from 'react-icons/io5'
 
 type SpellScenarioProps = {
     children: string
-    spellInput: string,
-    handleSpellInputChange: (e: ChangeEvent<FormElement>) => void
     handleSpellSubmit: () => void
     isInputCorrect: boolean | undefined
     goToNextQuestion: () => void
@@ -16,8 +14,6 @@ type SpellScenarioProps = {
 
 const SpellScenario: FC<SpellScenarioProps> = ({
     children,
-    spellInput,
-    handleSpellInputChange,
     handleSpellSubmit,
     isInputCorrect,
     goToNextQuestion,
@@ -38,13 +34,11 @@ const SpellScenario: FC<SpellScenarioProps> = ({
                 placeholder='Name des Zaubers'
                 css={{ marginTop: 28 }}
                 contentRightStyling={false}
-                // value={spellInput}
-                // onChange={handleSpellInputChange}
+                id="spellInput"
                 aria-label="spell input"
-                disabled={isInputCorrect}
                 status={`${isInputCorrect ? "success"
                     : isInputCorrect === false ? "error"
-                    : "default"
+                    : "success"
                 }`}
                 contentRight={
                     <button 
