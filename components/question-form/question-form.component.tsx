@@ -1,7 +1,8 @@
-import { FC, useState, useRef} from 'react'
+import { FC, useState, useRef, useEffect} from 'react'
 import { MultipleChoiceQuestion, SpellQuestion } from '../../quests'
-import { Button, Text, FormElement } from '@nextui-org/react'
+import { Button, Loading, Text } from '@nextui-org/react'
 import styles from './question-form.module.scss'
+import { useRouter } from 'next/router'
 
 // utils
 import { isCloseEnough } from '../../utils/utils'
@@ -25,9 +26,11 @@ const QuestionForm: FC<QuestionFormTypes> = ({
     progressState,
     increaseProgress
 }) => {
+    const router = useRouter()
     const defaultSelectionState: ("unselected" | "correct" | "wrong")[] = ["unselected", "unselected", "unselected", "unselected"]
     const [selectionState, setSelectionState] = useState<typeof defaultSelectionState>(defaultSelectionState)
     const [isSpellInputCorrect, setIsSpellInputCorrect] = useState<boolean | undefined>(undefined)
+    const [isNimbusVisible, setIsNimbusVisible] = useState<boolean>(false)
 
     const nextQuestionBtnRef = useRef<HTMLDivElement>(null)
 
@@ -42,6 +45,12 @@ const QuestionForm: FC<QuestionFormTypes> = ({
         setIsSpellInputCorrect(undefined)
         loadNextQuestion()
     }
+
+    useEffect(() => {
+        isNimbusVisible && setTimeout(() => {
+            router.push("/rewards")
+        }, 1600);
+    }, [isNimbusVisible, router])
 
     if(question.type === "multipleChoice") {
         const selectChoice = (index: number) => {
@@ -141,7 +150,17 @@ const QuestionForm: FC<QuestionFormTypes> = ({
                             <Text h4 css={{ color: '#fff' }}>Nächste Aufgabe</Text>
                         </Button>
                         : progressState === 100 && <>
-                            <span>du warst erfolgreich</span>
+                            <Button 
+                                color="gradient"
+                                css={{ letterSpacing: .2 }}
+                                onPress={() => setIsNimbusVisible(true)}
+                                size="lg"
+                                
+                            >
+                                {!isNimbusVisible && <Text h4 css={{ color: '#fff' }}>Verlorenen Code wiederherstellen</Text>}
+                                {isNimbusVisible && <Loading type="points" color="currentColor" size="md" />}
+                            </Button>
+                            {isNimbusVisible && <span className={`${styles.animatedNimbus}`}>🧹</span>}
                         </>            
                     }
                 </div>

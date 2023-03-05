@@ -8,12 +8,12 @@ export default function Navbar() {
         <nav className={styles.NavContainer}>
             <Text
                 h1
-                size={24}
+                size={26}
                 css={{
                     // textGradient: "45deg, $blue800 -10%, $green800 70%",
                     color: '#fff'
                 }}
-                weight="medium"
+                weight="bold"
                 
             >
                 Gesas Zauberprüfung 🧙

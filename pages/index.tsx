@@ -10,7 +10,13 @@ import QuestionForm from '../components/question-form/question-form.component'
 
 import { quests } from '../quests'
 
-const Home: NextPage = () => {
+type HomeProps = {
+  setHasFinishedQuests: (hasFinished: boolean) => void
+}
+
+const Home: NextPage<HomeProps> = ({
+  setHasFinishedQuests
+}) => {
   const [progressValue, setProgressValue] = useState<number>(0)
   const [indexCurrentQuestion, setIndexCurrentQuestion] = useState<number>(0)
 
@@ -20,7 +26,10 @@ const Home: NextPage = () => {
 
   const increaseProgress = () => {
     const totalQuests = quests.length
-    if(indexCurrentQuestion === totalQuests - 1) return setProgressValue(100)
+    if(indexCurrentQuestion === totalQuests - 1) {
+      setProgressValue(100)
+      return setHasFinishedQuests(true)
+    }
     setProgressValue((indexCurrentQuestion+1)/totalQuests*100)
   }
   

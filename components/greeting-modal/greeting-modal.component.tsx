@@ -75,7 +75,7 @@ const GreetingModal: FC<GreetingModalProps> = ({
                         marginBottom: 0
                     }}
                 >
-                    • Kennst du die wichtigsten Zaubersprüche, die eine Hexe oder Zauberer braucht?
+                    • Findest du dich in der Welt der Zauberei zurrecht?
                 </Text>
                 <Text
                     css={{
@@ -83,7 +83,7 @@ const GreetingModal: FC<GreetingModalProps> = ({
                         textAlign: "left"
                     }}
                 >
-                    • Kennst du die wichtigsten Zaubersprüche, die eine Hexe oder Zauberer braucht?
+                    • Und weißt du auch über den neusten Klatsch und Tratsch in Hogwarts bescheid?
                 </Text>
 
                 <Text
