@@ -1,8 +1,6 @@
 import { FC } from 'react'
-import { Text } from '@nextui-org/react'
-import styles from './question-choice.module.scss'
+import { Text, Button } from '@nextui-org/react'
 import { BsCheck2All } from 'react-icons/bs'
-import { IoCloseSharp } from 'react-icons/io5'
 
 type QuestionChoiceProps = {
     children: string
@@ -17,27 +15,33 @@ const QuestionChoice: FC<QuestionChoiceProps> = ({
 }) => {
 
     return(
-        <div 
-            className={
-                state === "unselected" ? styles.choiceContainer
-                : state === "wrong" ? styles.wrongChoiceContainer
-                : styles.correctChoiceContainer
-            } 
-            onClick={selectChoice}
+        <Button
+            css={{
+                background: `${
+                    state === "unselected" ? "#4e4e4e" 
+                    : state === "wrong" ? "#d60137" 
+                    : "#14A452"
+                }`,
+                display: "flex",
+                justifyContent: "space-between",
+            }}
+            auto
+            iconRight={
+                state === "correct" ? <BsCheck2All size={23} color="#ffffff"/>
+                : <BsCheck2All size={23} color="transparent"/>
+            }
+            size="xl"
+            onPress={selectChoice}
         >
             <Text 
                 h4
-                css={{ color: '#fff' }}
+                css={{ color: '#fff'}}
             >
                 { children }
             </Text>
 
-            {
-                state === "correct" ? <BsCheck2All size={23} color="#ffffff"/>
-                : state === "wrong" ? <IoCloseSharp size={23} color="#d60137"/>
-                : <BsCheck2All size={23} color="#4e4e4e"/>
-            }
-        </div>
+
+        </Button>
     )
 }
 
