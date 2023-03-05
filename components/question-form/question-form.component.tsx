@@ -30,7 +30,13 @@ const QuestionForm: FC<QuestionFormTypes> = ({
     const [isSpellInputCorrect, setIsSpellInputCorrect] = useState<boolean | undefined>(undefined)
 
     const goToNextQuestion = () => {
-        setSelectionState(defaultSelectionState)
+        if(question.type === "multipleChoice") {
+            setSelectionState(defaultSelectionState)
+            return loadNextQuestion()
+        }
+
+        const inputElement = document.getElementById("spellInput") as HTMLInputElement
+        inputElement.value = ""
         setIsSpellInputCorrect(undefined)
         loadNextQuestion()
     }

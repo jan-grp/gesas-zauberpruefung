@@ -38,7 +38,7 @@ const SpellScenario: FC<SpellScenarioProps> = ({
                 aria-label="spell input"
                 status={`${isInputCorrect ? "success"
                     : isInputCorrect === false ? "error"
-                    : "success"
+                    : "default"
                 }`}
                 contentRight={
                     <button 
