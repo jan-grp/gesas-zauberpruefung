@@ -8,16 +8,12 @@ type SpellScenarioProps = {
     children: string
     handleSpellSubmit: () => void
     isInputCorrect: boolean | undefined
-    goToNextQuestion: () => void
-    progressState: number
 }
 
 const SpellScenario: FC<SpellScenarioProps> = ({
     children,
     handleSpellSubmit,
     isInputCorrect,
-    goToNextQuestion,
-    progressState
 }) => {
     return(
         <div className={styles.scenarioContainer}>
@@ -49,20 +45,6 @@ const SpellScenario: FC<SpellScenarioProps> = ({
                     </button>
                 }
             />
-
-            {
-
-                isInputCorrect && progressState !== 100 ? <Button 
-                    color="gradient"
-                    css={{ letterSpacing: .6, marginTop: 20, marginBottom: -10 }}
-                    onPress={goToNextQuestion}
-                >
-                    <Text h4 css={{ color: '#fff' }}>Nächste Aufgabe</Text>
-                </Button>
-                : progressState === 100 && <>
-                    <span>du warst erfolgreich</span>
-                </>            
-            }
         </div>
     )
 }

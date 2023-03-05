@@ -7,8 +7,8 @@
     gap: 30px;
     text-align: center;
     align-items: center;
-    max-width: clamp(250px, 95%, 800px);
-    margin: 0 auto 20px auto;
+    max-width: clamp(250px, 95%, 700px);
+    margin: 0 auto;
 
 }
 
@@ -18,4 +18,11 @@
     gap: 18px;
     justify-content: center;
     width: 100%;
+}
+
+.nextQuestionBtnContainer {
+    display: flex;
+    margin: 20px auto;
+    align-items: center;
+    justify-content: center;
 }

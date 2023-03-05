@@ -1,4 +1,4 @@
-import { FC, useState, ChangeEvent, useEffect } from 'react'
+import { FC, useState, useRef} from 'react'
 import { MultipleChoiceQuestion, SpellQuestion } from '../../quests'
 import { Button, Text, FormElement } from '@nextui-org/react'
 import styles from './question-form.module.scss'
@@ -29,6 +29,8 @@ const QuestionForm: FC<QuestionFormTypes> = ({
     const [selectionState, setSelectionState] = useState<typeof defaultSelectionState>(defaultSelectionState)
     const [isSpellInputCorrect, setIsSpellInputCorrect] = useState<boolean | undefined>(undefined)
 
+    const nextQuestionBtnRef = useRef<HTMLDivElement>(null)
+
     const goToNextQuestion = () => {
         if(question.type === "multipleChoice") {
             setSelectionState(defaultSelectionState)
@@ -49,6 +51,7 @@ const QuestionForm: FC<QuestionFormTypes> = ({
                 resetedState[index] = "correct"
                 setSelectionState(resetedState)
                 increaseProgress()
+                nextQuestionBtnRef.current?.scrollIntoView({ behavior: 'smooth' })
             } else {
                 const resetedState = defaultSelectionState
                 resetedState[index] = "wrong"
@@ -79,22 +82,23 @@ const QuestionForm: FC<QuestionFormTypes> = ({
                             )
                         }
                     </div>
-
-
                 </div>
-                {
-                    selectionState.includes("correct") ? <Button 
-                        color="gradient"
-                        css={{ letterSpacing: .6, marginLeft: "auto", marginRight: "auto", margintop: 20 }}
-                        onPress={goToNextQuestion}
-                        size="lg"
-                    >
-                        <Text h4 css={{ color: '#fff' }}>Nächste Aufgabe</Text>
-                    </Button>
-                    : selectionState.includes("wrong") && <Text h5 css={{ color: '#fff', margin: 0, padding: 0 }}>
-                        Hm, das musst du wohl nochmal versuchen...
-                    </Text>                        
-                }
+                
+                <div 
+                    ref={nextQuestionBtnRef}
+                    className={styles.nextQuestionBtnContainer}
+                >
+                    {
+                        selectionState.includes("correct") && <Button 
+                            color="gradient"
+                            css={{ letterSpacing: .5 }}
+                            onPress={goToNextQuestion}
+                            size="lg"
+                        >
+                            <Text h4 css={{ color: '#fff' }}>Nächste Aufgabe</Text>
+                        </Button>                     
+                    }
+                </div>
             </>
         )
     }
@@ -120,11 +124,27 @@ const QuestionForm: FC<QuestionFormTypes> = ({
                 <SpellScenario
                     handleSpellSubmit={handleSpellSubmit}
                     isInputCorrect={isSpellInputCorrect}
-                    goToNextQuestion={goToNextQuestion} 
-                    progressState={progressState}
                 >
                     {question.scenario}
                 </SpellScenario>
+
+                <div 
+                    className={styles.nextQuestionBtnContainer}
+                >
+                    {
+                        isSpellInputCorrect && progressState !== 100 ? <Button 
+                            color="gradient"
+                            css={{ letterSpacing: .5 }}
+                            onPress={goToNextQuestion}
+                            size="lg"
+                        >
+                            <Text h4 css={{ color: '#fff' }}>Nächste Aufgabe</Text>
+                        </Button>
+                        : progressState === 100 && <>
+                            <span>du warst erfolgreich</span>
+                        </>            
+                    }
+                </div>
             </>
         )
     }
