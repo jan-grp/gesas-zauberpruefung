@@ -11,18 +11,10 @@ import QuestionForm from '../components/question-form/question-form.component'
 import { quests } from '../quests'
 
 const Home: NextPage = () => {
-  const [hasStartedExam, setHasStartedExam] = useState<boolean>(false)
   const [progressValue, setProgressValue] = useState<number>(0)
   const [indexCurrentQuestion, setIndexCurrentQuestion] = useState<number>(0)
 
-  const { setVisible, bindings } = useModal();
-
-  useEffect(() => {
-    if(!hasStartedExam) {
-      setVisible(true)
-      setHasStartedExam(true)
-    }
-  }, [setVisible, setHasStartedExam, hasStartedExam])
+  const { setVisible, bindings } = useModal(true);
 
   const handleNextQuestionRequest = () => setIndexCurrentQuestion(indexCurrentQuestion + 1)
 

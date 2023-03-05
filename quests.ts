@@ -28,7 +28,7 @@ export const quests: (MultipleChoiceQuestion | SpellQuestion)[] = [
     {
         type: "multipleChoice",
         question: "Was für ein Wesen ist Aragog?",
-        title: "Kennst du dich auch mit den magischen Tieren aus?",
+        title: "Kennst du dich auch mit den magischen Tierwesen aus?",
         correctAnswerIndex: 3,
         choices: [
             "ein Skorpion",

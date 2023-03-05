@@ -1,6 +1,6 @@
 import styles from './spell-scenario.module.scss'
-import { FC, ChangeEvent, FormEvent } from 'react'
-import { Text, Input, Button, FormElement } from '@nextui-org/react'
+import { FC } from 'react'
+import { Text, Input, Button } from '@nextui-org/react'
 import { ImQuotesRight } from 'react-icons/im'
 import { IoSend } from 'react-icons/io5'
 

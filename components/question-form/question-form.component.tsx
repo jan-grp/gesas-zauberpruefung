@@ -80,19 +80,21 @@ const QuestionForm: FC<QuestionFormTypes> = ({
                         }
                     </div>
 
-                    {
-                        selectionState.includes("correct") ? <Button 
-                            color="gradient"
-                            css={{ letterSpacing: .6 }}
-                            onPress={goToNextQuestion}
-                        >
-                            <Text h4 css={{ color: '#fff' }}>Nächste Aufgabe</Text>
-                        </Button>
-                        : selectionState.includes("wrong") && <Text h5 css={{ color: '#fff', margin: 0, padding: 0 }}>
-                            Hm, das musst du wohl nochmal versuchen...
-                        </Text>                        
-                    }
+
                 </div>
+                {
+                    selectionState.includes("correct") ? <Button 
+                        color="gradient"
+                        css={{ letterSpacing: .6, marginLeft: "auto", marginRight: "auto", margintop: 20 }}
+                        onPress={goToNextQuestion}
+                        size="lg"
+                    >
+                        <Text h4 css={{ color: '#fff' }}>Nächste Aufgabe</Text>
+                    </Button>
+                    : selectionState.includes("wrong") && <Text h5 css={{ color: '#fff', margin: 0, padding: 0 }}>
+                        Hm, das musst du wohl nochmal versuchen...
+                    </Text>                        
+                }
             </>
         )
     }

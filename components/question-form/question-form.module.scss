@@ -7,8 +7,9 @@
     gap: 30px;
     text-align: center;
     align-items: center;
-    max-width: 900px;
-    margin: 0 auto;
+    max-width: clamp(250px, 95%, 800px);
+    margin: 0 auto 20px auto;
+
 }
 
 .choicesContainer {
