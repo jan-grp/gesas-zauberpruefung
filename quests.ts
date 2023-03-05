@@ -15,7 +15,7 @@ export type SpellQuestion = {
 export const quests: (MultipleChoiceQuestion | SpellQuestion)[] = [
     {
         type: "multipleChoice",
-        question: "Durch welches Pub kommt man in die Winkelgasse",
+        question: "Durch welches Pub kommt man in die Winkelgasse?",
         title: "Mal schauen, ob du dich an einem der wichtesten Orte zurechtfindest!",
         correctAnswerIndex: 2,
         choices: [

@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 import type { NextPage } from 'next'
 import Head from 'next/head'
-import styles from '../styles/Home.module.css'
+import styles from '../styles/Home.module.scss'
 import { useModal } from '@nextui-org/react'
 
 import GreetingModal from '../components/greeting-modal/greeting-modal.component'

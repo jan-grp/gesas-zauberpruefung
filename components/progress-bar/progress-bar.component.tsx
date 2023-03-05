@@ -1,6 +1,6 @@
 import { Progress, Text } from '@nextui-org/react'
 import { FC } from 'react'
-import styles from './progress-bar.module.css'
+import styles from './progress-bar.module.scss'
 
 type ProgressBarProps = {
     value: number
