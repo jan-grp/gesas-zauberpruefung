@@ -16,7 +16,7 @@ export const quests: (MultipleChoiceQuestion | SpellQuestion)[] = [
     {
         type: "multipleChoice",
         question: "Durch welches Pub kommt man in die Winkelgasse?",
-        title: "Mal schauen, ob du dich an einem der wichtesten Orte zurechtfindest!",
+        title: "Mal schauen, ob du dich an einem der wichtesten Orte für junge Hexen zurechtfindest!",
         correctAnswerIndex: 2,
         choices: [
             "Eberkopf",
@@ -64,7 +64,7 @@ export const quests: (MultipleChoiceQuestion | SpellQuestion)[] = [
     {
         type: "multipleChoice",
         question: "Mit wem geht Hermine im vierten Schuljahr auf den Weihnachtsball?",
-        title: "Bist du auf dem Laufenden, was in Hogwarts alles abgeht?",
+        title: "Bist du auf dem Laufenden, was in Hogwarts so alles abgeht?",
         correctAnswerIndex: 0,
         choices: [
             "Viktor Krumm",
@@ -76,7 +76,7 @@ export const quests: (MultipleChoiceQuestion | SpellQuestion)[] = [
     {
         type: "multipleChoice",
         question: "Wie lautet der Name der Straße, in der Harry Potter aufgwachsen ist und wo sein Onkel und seine Tante leben?",
-        title: "Was weißt du über Harry?",
+        title: "Harry Potter ist DER Star! Du musst alles über ihn wissen!",
         correctAnswerIndex: 1,
         choices: [
             "Sonnenblumenallee",
@@ -99,17 +99,27 @@ export const quests: (MultipleChoiceQuestion | SpellQuestion)[] = [
     },
     {
         type: "spell",
-        scenario: "Nach einem langen Abend im Gasthaus Drei Besen und einem wilden Flug mit deinem Hippogreif kommst du volltrunken nach Hause. Entsprechend ist in deiner Handtasche alles umgefallen und findest nichts wieder.\nWelchen Zauberspruch wendest du an, um deinen Haustürschlüssel zu finden?",
+        scenario: "Nach einem langen Abend im Gasthaus 'Drei Besen' und einem wilden Flug mit deinem Hippogreif, kommst du volltrunken nach Hause. Entsprechend ist in deiner Handtasche alles umgefallen und du findest nichts wieder.\nWelchen Zauberspruch wendest du an, um deinen Haustürschlüssel zu finden?",
         correctAnswer: "Accio"
     },
     {
         type: "spell",
-        scenario: "Obowhl du den richtigen Zauberspruch angewand hast, findest du den Schlüssel nicht - du musst ihn wohl in Hogsmeade verloren haben.\nMit welchem Zauber kriegst du das Türschloss dennoch geöffnet?",
+        scenario: "... Obowhl du den richtigen Zauberspruch angewand hast, findest du den Schlüssel nicht - du musst ihn wohl in Hogsmeade verloren haben.\nMit welchem Zauber kriegst du das Türschloss dennoch geöffnet?",
         correctAnswer: "Alohomora"
     },
     {
         type: "spell",
-        scenario: "",
-        correctAnswer: ""
+        scenario: "... Oh nein - nicht schon wieder! Dein Mitbewohner wollte dich mal wieder erschrecken und hat in deinem Zimmer einen Irrwicht auf dich warten lassen. Zum Glück kennst du den Zauber, um ihn loszuwerden. Oder?",
+        correctAnswer: "Riddikulus"
+    },
+    {
+        type: "spell",
+        scenario: "... Du bist so sauer auf deinen Mitbewohner, dass du ihn bis zum nächsten Morgen lähmen möchtest - genau so, wie es Hermine einst mit Neville getan hat. Welchen Zauber wendest du an?",
+        correctAnswer: "Petrificus Totalus"
+    },
+    {
+        type: "spell",
+        scenario: "... Dein Mitbewohner gibt sich natürlich nicht kampflos geschlagen - auf deine Wutanfälle ist er ja mittlerweile vorbereitet. Er hebt gerade seinen Zauberstab und möchte dich Schnecken spucken lassen! Welchen Zauber setzt du ein, um ihn zu entwaffnen?",
+        correctAnswer: "Expelliarmus"
     }
 ]

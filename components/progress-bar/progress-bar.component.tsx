@@ -17,6 +17,7 @@ const ProgressBar: FC<ProgressBarProps> = ({
                 color="success" 
                 size="sm" 
                 shadow={false}
+                animated
                 css={{
                     background: "#16181A"
                 }}

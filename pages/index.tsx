@@ -12,7 +12,7 @@ import { quests } from '../quests'
 
 const Home: NextPage = () => {
   const [hasStartedExam, setHasStartedExam] = useState<boolean>(false)
-  const [progressValue, setProgressValue] = useState<number>(70)
+  const [progressValue, setProgressValue] = useState<number>(0)
   const [indexCurrentQuestion, setIndexCurrentQuestion] = useState<number>(0)
 
   const { setVisible, bindings } = useModal();
@@ -23,6 +23,14 @@ const Home: NextPage = () => {
       setHasStartedExam(true)
     }
   }, [setVisible, setHasStartedExam, hasStartedExam])
+
+  const handleNextQuestionRequest = () => setIndexCurrentQuestion(indexCurrentQuestion + 1)
+
+  const increaseProgress = () => {
+    const totalQuests = quests.length
+    if(indexCurrentQuestion === totalQuests - 1) return setProgressValue(100)
+    setProgressValue((indexCurrentQuestion+1)/totalQuests*100)
+  }
   
   return (
     <div>
@@ -32,7 +40,12 @@ const Home: NextPage = () => {
 
       <ProgressBar value={progressValue} />
 
-      <QuestionForm question={quests[indexCurrentQuestion]}/>
+      <QuestionForm 
+        question={quests[indexCurrentQuestion]}
+        loadNextQuestion={handleNextQuestionRequest}
+        progressState={progressValue}
+        increaseProgress={increaseProgress}
+      />
 
       <GreetingModal 
         bindings={bindings}

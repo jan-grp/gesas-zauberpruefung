@@ -25,7 +25,6 @@ const QuestionChoice: FC<QuestionChoiceProps> = ({
                 display: "flex",
                 justifyContent: "space-between",
             }}
-            auto
             iconRight={
                 state === "correct" ? <BsCheck2All size={23} color="#ffffff"/>
                 : <BsCheck2All size={23} color="transparent"/>
