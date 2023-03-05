@@ -1,4 +1,4 @@
-import { Modal, useModal, Button, Text } from "@nextui-org/react";
+import { Modal, Button, Text } from "@nextui-org/react";
 import { FC } from "react";
 
 import styles from './greeting-modal.module.scss'
