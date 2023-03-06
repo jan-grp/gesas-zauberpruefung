@@ -1,58 +1,31 @@
-import { useEffect, useState } from 'react'
 import type { NextPage } from 'next'
+import { useEffect, useState } from 'react'
 import Head from 'next/head'
+import { motion } from 'framer-motion'
 import styles from '../styles/Home.module.scss'
-import { useModal } from '@nextui-org/react'
 
-import GreetingModal from '../components/greeting-modal/greeting-modal.component'
-import ProgressBar from '../components/progress-bar/progress-bar.component'
-import QuestionForm from '../components/question-form/question-form.component'
-
-import { quests } from '../quests'
+// components
+import Intro from '../components/intro/intro'
 
 type HomeProps = {
-  setHasFinishedQuests: (hasFinished: boolean) => void
 }
 
 const Home: NextPage<HomeProps> = ({
-  setHasFinishedQuests
 }) => {
-  const [progressValue, setProgressValue] = useState<number>(0)
-  const [indexCurrentQuestion, setIndexCurrentQuestion] = useState<number>(0)
-
-  const { setVisible, bindings } = useModal(true);
-
-  const handleNextQuestionRequest = () => setIndexCurrentQuestion(indexCurrentQuestion + 1)
-
-  const increaseProgress = () => {
-    const totalQuests = quests.length
-    if(indexCurrentQuestion === totalQuests - 1) {
-      setProgressValue(100)
-      return setHasFinishedQuests(true)
-    }
-    setProgressValue((indexCurrentQuestion+1)/totalQuests*100)
-  }
-  
   return (
-    <div>
+    <>
       <Head>
-        <title>Gesas Zauberprüfung</title>
+        <title>ready?</title>
       </Head>
-
-      <ProgressBar value={progressValue} />
-
-      <QuestionForm 
-        question={quests[indexCurrentQuestion]}
-        loadNextQuestion={handleNextQuestionRequest}
-        progressState={progressValue}
-        increaseProgress={increaseProgress}
-      />
-
-      <GreetingModal 
-        bindings={bindings}
-        setVisible={setVisible}
-      />
-    </div>
+      <div className={styles.videoContainer}>
+        <video autoPlay muted loop  className={styles.video}>
+          <source src="/storm.mp4" type="video/mp4" />
+        </video>
+        <div className={styles.content}>
+          <Intro />
+        </div>
+      </div>
+    </>
   )
 }
 

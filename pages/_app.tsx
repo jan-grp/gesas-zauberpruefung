@@ -3,8 +3,6 @@ import type { AppProps } from 'next/app'
 import { useState, useEffect } from 'react'
 import { useRouter } from 'next/router'
 
-// components
-import Navbar from '../components/navbar/navbar.component'
 
 function MyApp({ Component, pageProps }: AppProps) {
   const router = useRouter()
@@ -19,15 +17,12 @@ function MyApp({ Component, pageProps }: AppProps) {
   }, [router])
 
   return (
-    <>
-      <Navbar />
-      <Component 
-        {...pageProps} 
-        hasFinishedQuests={hasFinishedQuests} 
-        setHasFinishedQuests={setHasFinishedQuests} 
-        secretFromLink={secretFromLink}
-      />
-    </>
+    <Component 
+      {...pageProps} 
+      hasFinishedQuests={hasFinishedQuests} 
+      setHasFinishedQuests={setHasFinishedQuests} 
+      secretFromLink={secretFromLink}
+    />
   )
 }
 

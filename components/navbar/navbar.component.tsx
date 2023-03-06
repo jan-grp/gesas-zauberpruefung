@@ -16,7 +16,7 @@ export default function Navbar() {
                 weight="bold"
                 
             >
-                Gesas Zauberprüfung 🧙
+                Flamels Zauberprüfung
             </Text>
         </nav>
     )

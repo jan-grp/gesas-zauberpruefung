@@ -18,7 +18,7 @@ const Rewards: NextPage<RewardsProps> = ({
     const router = useRouter()
 
     const [pageLoading, setPageLoading] = useState<boolean>(true)
-    const [PSNCodes, setPSNCodes] = useState<string>()
+    const [PSNCodes, setPSNCodes] = useState<string[] | false>(false)
 
     async function requestPSNCodes(secret: string) {
         try {
@@ -50,6 +50,13 @@ const Rewards: NextPage<RewardsProps> = ({
                     <QuestionIntro>
                         Du hast alle Aufgaben erfolgreich gemeistert! Gratulation!
                     </QuestionIntro>
+
+                    {
+                        PSNCodes && <div>
+                            <span>code 1: ${PSNCodes[0]}</span>
+                            <span>code 2: ${PSNCodes[0]}</span>
+                        </div>
+                    }
                 </div>
             }
         </>
