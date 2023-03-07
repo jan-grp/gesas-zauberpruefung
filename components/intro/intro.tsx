@@ -26,7 +26,7 @@ const Intro = () => {
                 animate={{ opacity: 1 }}
             >
                 <IntroCard>
-                ...um diese nicht zu verlieren, bewahrte er sie in einer magischen Truhe auf.
+                ...um sie nicht zu verlieren, bewahrte er sie in einer magischen Truhe auf.
                 </IntroCard>
             </motion.h3>
             <motion.h3
@@ -61,7 +61,8 @@ const Intro = () => {
                 initial={{ opacity: 0, y: 20 }}
                 transition={{ delay: 2+5*animationDelays, ease: "easeIn", duration: 2.5 }}
                 animate={{ opacity: 1 }}
-                onAnimationComplete={() => window.scrollTo({ left: 0, top: 200, behavior: "smooth"})}
+                onAnimationStart={() => window.scrollTo({ left: 0, top: 200, behavior: "smooth"})}
+                // onAnimationComplete={() => window.scrollTo({ left: 0, top: 200, behavior: "smooth"})}
             >
                 <Button 
                     color="gradient"

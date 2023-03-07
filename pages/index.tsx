@@ -15,7 +15,7 @@ const Home: NextPage<HomeProps> = ({
   return (
     <>
       <Head>
-        <title>ready?</title>
+        <title>bereit?</title>
       </Head>
       <div className={styles.videoContainer}>
         <video autoPlay muted loop  className={styles.video}>
