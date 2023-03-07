@@ -26,11 +26,11 @@ const Intro = () => {
                 animate={{ opacity: 1 }}
             >
                 <IntroCard>
-                ...um diese nicht zu verlieren, verwahrte er sie in einer magischen Truhe.
+                ...um diese nicht zu verlieren, bewahrte er sie in einer magischen Truhe auf.
                 </IntroCard>
             </motion.h3>
             <motion.h3
-                initial={{ opacity: 0, x: -15 }}
+                initial={{ opacity: 0, x: -15, y: 12 }}
                 transition={{ delay: 2+2*animationDelays, ease: "easeIn", duration: 2.5 }}
                 animate={{ opacity: 1 }}
             >
@@ -44,11 +44,11 @@ const Intro = () => {
                 animate={{ opacity: 1 }}
             >
                 <IntroCard>
-                ...die magische Truhe stellt jedem, der sie öffnen will, eine Prüfung und sie öffnet sich erst, wenn jemand die Prüfung besteht.
+                ...die magische Truhe stellt jedem, der sie öffnen will, eine Prüfung. Und sie öffnet sich erst, wenn jemand die Prüfung besteht.
                 </IntroCard>
             </motion.h3>
             <motion.h3
-                initial={{ opacity: 0, x: -15 }}
+                initial={{ opacity: 0, x: -15, y: 20 }}
                 transition={{ delay: 2+4*animationDelays, ease: "easeIn", duration: 2.5 }}
                 animate={{ opacity: 1 }}
             >
@@ -61,7 +61,7 @@ const Intro = () => {
                 initial={{ opacity: 0, y: 20 }}
                 transition={{ delay: 2+5*animationDelays, ease: "easeIn", duration: 2.5 }}
                 animate={{ opacity: 1 }}
-                onAnimationComplete={() => window.scrollTo({ left: 0, top: 500, behavior: "smooth"})}
+                onAnimationComplete={() => window.scrollTo({ left: 0, top: 200, behavior: "smooth"})}
             >
                 <Button 
                     color="gradient"

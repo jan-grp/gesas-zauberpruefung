@@ -1,21 +1,23 @@
 import { FC } from "react"
-import { Text, Tooltip } from '@nextui-org/react'
+import { Text, Tooltip, SimpleColors } from '@nextui-org/react'
 import Lottie from 'lottie-react'
 
 import Wizard from '../../public/12689-wyzard.json'
 
 type QuestionIntroTypes = {
     children: string
+    color?: SimpleColors
 }
 
 const QuestionIntro: FC<QuestionIntroTypes> = ({
-    children
+    children,
+    color
 }) => {
 
     return(
         <div>
             <Tooltip
-                color="primary"
+                color={color ?? "primary"}
                 content={children}
                 trigger="click"
                 placement="right"

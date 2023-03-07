@@ -32,8 +32,6 @@ const QuestionForm: FC<QuestionFormTypes> = ({
     const [isSpellInputCorrect, setIsSpellInputCorrect] = useState<boolean | undefined>(undefined)
     const [isNimbusVisible, setIsNimbusVisible] = useState<boolean>(false)
 
-    const nextQuestionBtnRef = useRef<HTMLDivElement>(null)
-
     const goToNextQuestion = () => {
         if(question.type === "multipleChoice") {
             setSelectionState(defaultSelectionState)
@@ -60,7 +58,7 @@ const QuestionForm: FC<QuestionFormTypes> = ({
                 resetedState[index] = "correct"
                 setSelectionState(resetedState)
                 increaseProgress()
-                nextQuestionBtnRef.current?.scrollIntoView({ behavior: 'smooth' })
+                window.scrollTo(0, document.body.scrollHeight)
             } else {
                 const resetedState = defaultSelectionState
                 resetedState[index] = "wrong"
@@ -94,7 +92,6 @@ const QuestionForm: FC<QuestionFormTypes> = ({
                 </div>
                 
                 <div 
-                    ref={nextQuestionBtnRef}
                     className={styles.nextQuestionBtnContainer}
                 >
                     {
