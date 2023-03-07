@@ -61,8 +61,7 @@ const Intro = () => {
                 initial={{ opacity: 0, y: 20 }}
                 transition={{ delay: 2+5*animationDelays, ease: "easeIn", duration: 2.5 }}
                 animate={{ opacity: 1 }}
-                onAnimationStart={() => window.scrollTo({ left: 0, top: 200, behavior: "smooth"})}
-                // onAnimationComplete={() => window.scrollTo({ left: 0, top: 200, behavior: "smooth"})}
+                onAnimationComplete={() => window.scrollTo({ left: 0, top: 200, behavior: "smooth"})}
             >
                 <Button 
                     color="gradient"
