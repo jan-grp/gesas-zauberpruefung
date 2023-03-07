@@ -7,50 +7,59 @@ import IntroCard from '../intro-card/intro-card.component'
 
 const Intro = () => {
     const router = useRouter()
-    const animationDelays = 7
+    const animationDelays = 1
 
     return(
         <div>
-            <motion.h2
+            <motion.h3
                 initial={{ opacity: 0, x: -15 }}
                 transition={{ delay: 2, ease: "easeIn", duration: 2.5 }}
                 animate={{ opacity: 1 }}
             >
                 <IntroCard>
-                Vor sehr langer Zeit berechnete der Zauberer Nicolas Flamel einen mysteriösen Zahlen-Code...
+                Vor sehr langer Zeit berechnete der Zauberer Nicolas Flamel eine mysteriöse und bedeutsame Zeichenfolge...
                 </IntroCard>
-            </motion.h2>
-            <motion.h2
+            </motion.h3>
+            <motion.h3
                 initial={{ opacity: 0, x: 15 }}
                 transition={{ delay: 2+animationDelays, ease: "easeIn", duration: 2.5 }}
                 animate={{ opacity: 1 }}
             >
                 <IntroCard>
-                ...um ihn nicht zu verlieren, schloss er ihn in eine magische Truhe ein.
+                ...um diese nicht zu verlieren, verwahrte er sie in einer magischen Truhe.
                 </IntroCard>
-            </motion.h2>
-            <motion.h2
+            </motion.h3>
+            <motion.h3
                 initial={{ opacity: 0, x: -15 }}
                 transition={{ delay: 2+2*animationDelays, ease: "easeIn", duration: 2.5 }}
                 animate={{ opacity: 1 }}
             >
                 <IntroCard>
-                Heute ist Flamel lange tot - und mit ihm der Zugang zu der Truhe...
+                Heute ist Flamel lange tot - und keiner vermag es, die Truhe zu öffnen...
                 </IntroCard>
-            </motion.h2>
-            <motion.h2
+            </motion.h3>
+            <motion.h3
                 initial={{ opacity: 0, x: 15 }}
                 transition={{ delay: 2+3*animationDelays, ease: "easeIn", duration: 2.5 }}
                 animate={{ opacity: 1 }}
             >
                 <IntroCard>
-                ...die magische Truhe stellt jedem, der sie öffnen will, eine Prüfung. Besteht jemand die Prüfung, öffnet sie sich.
+                ...die magische Truhe stellt jedem, der sie öffnen will, eine Prüfung und sie öffnet sich erst, wenn jemand die Prüfung besteht.
                 </IntroCard>
-            </motion.h2>
+            </motion.h3>
+            <motion.h3
+                initial={{ opacity: 0, x: -15 }}
+                transition={{ delay: 2+4*animationDelays, ease: "easeIn", duration: 2.5 }}
+                animate={{ opacity: 1 }}
+            >
+                <IntroCard>
+                Was lässt sich wohl mit dem Inhalt der Truhe anstellen?
+                </IntroCard>
+            </motion.h3>
 
             <motion.div
                 initial={{ opacity: 0, y: 20 }}
-                transition={{ delay: 2+4*animationDelays, ease: "easeIn", duration: 2.5 }}
+                transition={{ delay: 2+5*animationDelays, ease: "easeIn", duration: 2.5 }}
                 animate={{ opacity: 1 }}
             >
                 <Button 

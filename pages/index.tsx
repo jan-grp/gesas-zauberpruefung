@@ -19,7 +19,7 @@ const Home: NextPage<HomeProps> = ({
       </Head>
       <div className={styles.videoContainer}>
         <video autoPlay muted loop  className={styles.video}>
-          <source src="/storm.mp4" type="video/mp4" />
+          <source src="/storm_720.mp4" type="video/mp4" />
         </video>
         <div className={styles.content}>
           <Intro />
