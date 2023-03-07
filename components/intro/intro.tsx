@@ -7,7 +7,7 @@ import IntroCard from '../intro-card/intro-card.component'
 
 const Intro = () => {
     const router = useRouter()
-    const animationDelays = 1
+    const animationDelays = 5
 
     return(
         <div>
@@ -61,6 +61,7 @@ const Intro = () => {
                 initial={{ opacity: 0, y: 20 }}
                 transition={{ delay: 2+5*animationDelays, ease: "easeIn", duration: 2.5 }}
                 animate={{ opacity: 1 }}
+                onAnimationComplete={() => window.scrollTo({ left: 0, top: 500, behavior: "smooth"})}
             >
                 <Button 
                     color="gradient"
