@@ -36,6 +36,7 @@ const Rewards: NextPage<RewardsProps> = ({
 
             if(res.PSNCodes) {
                 setPSNCodes(res.PSNCodes)
+                setPageLoading(false)
                 return true
             }
 
