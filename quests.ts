@@ -104,7 +104,7 @@ export const quests: (MultipleChoiceQuestion | SpellQuestion)[] = [
     },
     {
         type: "spell",
-        scenario: "... Obowhl du den richtigen Zauberspruch angewand hast, findest du den Schlüssel nicht - du musst ihn wohl in Hogsmeade verloren haben.\nMit welchem Zauber kriegst du das Türschloss dennoch geöffnet?",
+        scenario: "... Obowhl du den richtigen Zauberspruch angewendet hast, findest du den Schlüssel nicht - du musst ihn wohl in Hogsmeade verloren haben.\nMit welchem Zauber kriegst du das Türschloss dennoch geöffnet?",
         correctAnswer: "Alohomora"
     },
     {

@@ -39,8 +39,10 @@ const Rewards: NextPage<RewardsProps> = ({
                 return true
             }
 
+            setPageLoading(false)
             return false
         } catch (error) {
+            setPageLoading(false)
             console.error("error when requesting PSN Codes: ", error)
             return false
         }
@@ -53,9 +55,10 @@ const Rewards: NextPage<RewardsProps> = ({
 
         if(secretFromLink) {
             requestPSNCodes(secretFromLink)
+        } else {
+            setPageLoading(false)
         }
 
-        setPageLoading(false)
     }, [hasFinishedQuests, router, secretFromLink])
 
     const handleChestClick = () => {
