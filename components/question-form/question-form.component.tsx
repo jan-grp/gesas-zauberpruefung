@@ -3,6 +3,7 @@ import { MultipleChoiceQuestion, SpellQuestion } from '../../quests'
 import { Button, Loading, Text } from '@nextui-org/react'
 import styles from './question-form.module.scss'
 import { useRouter } from 'next/router'
+import Cookies from 'js-cookie'
 
 // utils
 import { isCloseEnough } from '../../utils/utils'
@@ -49,6 +50,15 @@ const QuestionForm: FC<QuestionFormTypes> = ({
             router.push("/rewards")
         }, 1600);
     }, [isNimbusVisible, router])
+
+    const finishQuests = () => {
+        setIsNimbusVisible(true)
+        Cookies.set(
+            "hasFinishedQuests",
+            "true",
+            { expires: 365 }
+        )
+    }
 
     if(question.type === "multipleChoice") {
         const selectChoice = (index: number) => {
@@ -150,11 +160,11 @@ const QuestionForm: FC<QuestionFormTypes> = ({
                             <Button 
                                 color="gradient"
                                 css={{ letterSpacing: .2 }}
-                                onPress={() => setIsNimbusVisible(true)}
+                                onPress={finishQuests}
                                 size="lg"
                                 
                             >
-                                {!isNimbusVisible && <Text h4 css={{ color: '#fff' }}>Verlorenen Code wiederherstellen</Text>}
+                                {!isNimbusVisible && <Text h4 css={{ color: '#fff' }}>Magische Truhe öffnen</Text>}
                                 {isNimbusVisible && <Loading type="points" color="currentColor" size="md" />}
                             </Button>
                             {isNimbusVisible && <span className={`${styles.animatedNimbus}`}>🧹</span>}

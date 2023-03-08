@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react'
 import { useRouter } from 'next/router'
 import { Loading, useModal, Tooltip, Text, Input, Button } from '@nextui-org/react'
 import styles from '../styles/Rewards.module.scss' 
+import Cookies from 'js-cookie'
 
 // components
 import QuestionIntro from '../components/question-intro/question-intro.component'
@@ -46,7 +47,9 @@ const Rewards: NextPage<RewardsProps> = ({
     }
 
     useEffect(() => {
-        if(!hasFinishedQuests) router.push("/")
+        const hasFinishedQuestsCookie = Cookies.get("hasFinishedQuests")
+
+        if(!hasFinishedQuests && !hasFinishedQuestsCookie) router.push("/")
 
         if(secretFromLink) {
             requestPSNCodes(secretFromLink)
@@ -108,7 +111,7 @@ const Rewards: NextPage<RewardsProps> = ({
                                 h4
                                 color="primary"
                             >
-                                Bevor du die Truhe öffnen kannst, gib bitte noch das Passwort ein, was dir vorher übermittelt wurde:
+                                Bevor du die Truhe öffnen kannst, gib bitte das Passwort ein, was dir vorher übermittelt wurde oder öffne die Seite über den QR-Code.
                             </Text>
                             <Input 
                                 labelPlaceholder="Passwort" 

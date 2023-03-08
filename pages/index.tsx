@@ -3,6 +3,8 @@ import { useEffect, useState } from 'react'
 import Head from 'next/head'
 import { motion } from 'framer-motion'
 import styles from '../styles/Home.module.scss'
+import Cookies from 'js-cookie'
+import { useRouter } from 'next/router'
 
 // components
 import Intro from '../components/intro/intro'
@@ -10,8 +12,14 @@ import Intro from '../components/intro/intro'
 type HomeProps = {
 }
 
-const Home: NextPage<HomeProps> = ({
-}) => {
+const Home: NextPage<HomeProps> = () => {
+  const router = useRouter()
+
+  useEffect(() => {
+    const hasFinishedQuests = Cookies.get("hasFinishedQuests")
+    if(hasFinishedQuests) router.push("/rewards")
+  }, [router])
+  
   return (
     <>
       <Head>

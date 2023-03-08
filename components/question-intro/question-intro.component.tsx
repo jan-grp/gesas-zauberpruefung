@@ -23,7 +23,7 @@ const QuestionIntro: FC<QuestionIntroTypes> = ({
                 placement="right"
                 visible
                 initialVisible
-                offset={-15}
+                offset={-40}
                 css={{ marginRight: 15 }}
                 leaveDelay={10000000}
             >
