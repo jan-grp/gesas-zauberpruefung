@@ -1,3 +1,7 @@
+# what is this?
+This a small website created for a birthday gift.
+(Note that the final chest will only open properly if the website is opened with a specific query in the link)
+
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
 ## Getting Started
